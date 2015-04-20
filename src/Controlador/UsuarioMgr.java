@@ -57,7 +57,7 @@ public class UsuarioMgr {
             Integer idUsuario = Integer.parseInt(usuarios.get(usuarios.size() - 1).getId()) + 1;
             Usuario usuarioNuevo = new Usuario(idUsuario.toString(), nombre, apellido, documento, telefono);
             usuarios.add(usuarioNuevo);
-            Usuario.insertarUsuarios(apellido, nombre, apellido, documento, telefono);
+            Usuario.insertarUsuarios(idUsuario.toString(), nombre, apellido, documento, telefono);
             return usuarioNuevo;
         }
         return usuario;
