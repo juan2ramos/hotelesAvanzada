@@ -111,13 +111,13 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Reservas reservas = new Reservas();
-        jDesktopPane1.add(reservas);
-        reservas.show();        // TODO add your handling code here:
+              // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+         Reservas reservas = new Reservas();
+        jDesktopPane1.add(reservas);
+        reservas.show(); // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -136,19 +136,6 @@ public class Principal extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-
-        generateSql pSql = new generateSql();
-        List<HashMap<String, Object>> lista = null;
-        try {
-            lista = pSql.selectSql("select * from ciudad");
-        } catch (SQLException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        for (int i = 0; i < lista.size(); i++) {
-            String nombre = (String) lista.get(i).get("nombre");
-            System.out.print(nombre);
-        }
-
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
