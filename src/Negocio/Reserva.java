@@ -46,7 +46,12 @@ public class Reserva {
     public String getId() {
         return id;
     }
-    
+    public String getFechaLLegada(){
+        return fechaLLegada;
+    }
+    public String getFechaSalida(){
+        return fechaLLegada;
+    }
     public static List<HashMap<String, Object>> llenarReservas() {
         generateSql pSql = new generateSql();
         try {
@@ -62,20 +67,20 @@ public class Reserva {
             String ciudad, String hotel, String usuario) {
         generateSql pSql = new generateSql();
 
-        try {
-            pSql.selectSql("insert into `hoteles`.`reserva` "
+ 
+            String sql = "insert into `hoteles`.`reserva` "
                     + "( `fecha_salida`, `numero_habitaciones`, `fecha_llegada`,"
                     + " `id_usuario`, `id_ciudad`, `id_hotel`)"
-                    + " values ( '"+fechaSalida+"', '"+numeroHabitaciones+"', '"+fechaLLegada+"', '"+usuario+"', '"+ciudad+"', '"+hotel+"')");
-        } catch (SQLException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+                    + " values ( '"+fechaSalida+"', '"+numeroHabitaciones+"', '"+fechaLLegada+"', '"+usuario+"', '"+ciudad+"', '"+hotel+"')";
+            System.out.println(sql);
+            pSql.update(sql);
     }
-
+    public Usuario getUsuario() {
+        return usuario;
+    }
     @Override
     public String toString() {
-        return id;
+        return fechaLLegada;
     }
 
 }

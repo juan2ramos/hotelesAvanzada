@@ -47,7 +47,9 @@ public class Usuario {
         return id;
     }
     
-    
+    public String getDocumento() {
+        return documento;
+    }
     
     public static List<HashMap<String, Object>> llenarUsuarios() {
         generateSql pSql = new generateSql();
@@ -63,13 +65,14 @@ public class Usuario {
     public static void insertarUsuarios(String id,String nombre ,String apellido ,String documento, String telefono) {
         generateSql pSql = new generateSql();
 
-        try {
-            pSql.selectSql("insert into `hoteles`.`usuarios` ( "
+     
+            String sql = "insert into `hoteles`.`usuarios` ( "
                     + "`documento`, `id`, `apellido`, `nombre`, `telefono`) values ( "
-                    + "'" + documento + "', '"+ id +"', '" + apellido + "', '" + nombre + "', '"+ telefono + "')");
-        } catch (SQLException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                    + "'" + documento + "', '"+ id +"', '" + apellido + "', '" + nombre + "', '"+ telefono + "');";
+            
+            System.out.println(sql);
+            pSql.update(sql);
+        
 
     }
 }

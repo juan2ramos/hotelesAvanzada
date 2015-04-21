@@ -47,7 +47,7 @@ public class ReservaMgr {
             Hotel hotel = HotelMgr.getInstance().getHotel(idHotel);
             Ciudad ciudad = CiudadMgr.getInstance().getCiudad(idCiudad);
             Usuario usuario = UsuarioMgr.getInstance().getUsuario(idUsuario);
-            
+       
             reservas.add(new Reserva(id,fechaLlegada,fechaSalida,numeroHabitaciones,ciudad,hotel,usuario));
                 
         }
@@ -61,8 +61,16 @@ public class ReservaMgr {
             reservas.add(new Reserva(idReserva.toString(),llegada,salida,Nuhabitaciones,ciudad,hotel,usuario));
             
     }
-    private void crearUsuario(){
+    public ArrayList<Reserva> buscarReserva(String cedula){
+        ArrayList<Reserva> reservasPorUsuario = new ArrayList();
         
+        for (Reserva reserva : reservas) {
+            if (reserva.getUsuario().getDocumento().equals(cedula)) {
+                reservasPorUsuario.add(reserva);
+                System.out.print("jsjsj");
+            }
+        }
+        return reservasPorUsuario;
     }
     public ArrayList<Reserva> getReservas() {
         return reservas;

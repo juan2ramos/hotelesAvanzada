@@ -61,7 +61,7 @@ public class generateSql extends Conexion {
         return list;
     }
 
-    boolean update(String query) {
+    public boolean update(String query) {
         try {
             pstmt = conn.prepareStatement(query); 
             pstmt.executeUpdate();  
