@@ -5,6 +5,10 @@
  */
 package vista;
 
+import Controlador.ReservaMgr;
+import Negocio.Reserva;
+import java.util.ArrayList;
+
 /**
  *
  * @author ryu
@@ -16,6 +20,26 @@ public class Reportes extends javax.swing.JFrame {
      */
     public Reportes() {
         initComponents();
+        llenarReporte();
+    }
+
+    private void llenarReporte() {
+        ArrayList<Reserva> reservas = ReservaMgr.getInstance().reporte();
+        String text = "";
+        for (int i = 0; i < reservas.size(); i++) {
+
+             text += "Reseva = " + reservas.get(i).getId()
+                    + " Documento usuario : " + reservas.get(i).getUsuario().getDocumento()
+                    + " Nombre usuario : " + reservas.get(i).getUsuario().getNombre()
+                    + " Hotel " + reservas.get(i).getHotel().toString()
+                    + " Habitacion  " + reservas.get(i).getHabitacion().toString()
+                    + " Fecha Entrada : " + " Hotel " + reservas.get(i).getFechaLLegada()
+                    + " Fecha salida : " + reservas.get(i).getFechaSalida()
+                    + "\n\n";
+
+        }
+        texto.setText(text);
+        
     }
 
     /**
@@ -29,6 +53,8 @@ public class Reportes extends javax.swing.JFrame {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        texto = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,21 +63,27 @@ public class Reportes extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Lucida Calligraphy", 0, 18)); // NOI18N
         jLabel1.setText("REPORTES");
 
+        jScrollPane1.setViewportView(texto);
+
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(426, Short.MAX_VALUE))
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -106,5 +138,7 @@ public class Reportes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane texto;
     // End of variables declaration//GEN-END:variables
 }

@@ -43,12 +43,13 @@ public class ReservaMgr {
             String idHotel = (String) listaReserva.get(i).get("id_hotel").toString();
             String idUsuario = (String) listaReserva.get(i).get("id_usuario").toString();
             String idCiudad = (String) listaReserva.get(i).get("id_ciudad").toString();
+            String estado = (String) listaReserva.get(i).get("estado").toString();
             
             Hotel hotel = HotelMgr.getInstance().getHotel(idHotel);
             Ciudad ciudad = CiudadMgr.getInstance().getCiudad(idCiudad);
             Usuario usuario = UsuarioMgr.getInstance().getUsuario(idUsuario);
             Habitacion habitacion = HabitacionMgr.getInstance().getHabitacion(idHabitacion);
-            reservas.add(new Reserva(id,fechaLlegada,fechaSalida,numeroHabitaciones,ciudad,hotel,usuario,habitacion));
+            reservas.add(new Reserva(id,fechaLlegada,fechaSalida,numeroHabitaciones,ciudad,hotel,usuario,habitacion,estado));
                 
         }
     }
@@ -58,15 +59,13 @@ public class ReservaMgr {
             Usuario usuario =  UsuarioMgr.getInstance().crearUsuario(nombres, apellidos, documento, telefono);
             Integer idReserva = Integer.parseInt(reservas.get(reservas.size() - 1).getId()) + 1;
             Reserva.insertarReservas(idReserva.toString(),llegada,salida,Nuhabitaciones,ciudad.getId(),hotel.getId(),usuario.getId());
-            reservas.add(new Reserva(idReserva.toString(),llegada,salida,Nuhabitaciones,ciudad,hotel,usuario,habitacion));
+            reservas.add(new Reserva(idReserva.toString(),llegada,salida,Nuhabitaciones,ciudad,hotel,usuario,habitacion,"0"));
             
     }
     public ArrayList<Reserva> buscarReserva(String cedula){
         ArrayList<Reserva> reservasPorUsuario = new ArrayList();
         
         for (Reserva reserva : reservas) {
-          System.out.println();  
-        System.out.println(cedula + " " + reserva.getUsuario().getDocumento());
             if (reserva.getUsuario().getDocumento().equals(cedula)) {
                 reservasPorUsuario.add(reserva);
                 
@@ -74,8 +73,23 @@ public class ReservaMgr {
         }
         return reservasPorUsuario;
     }
+    public ArrayList<Reserva> reporte(){
+        ArrayList<Reserva> reservasPorUsuario = new ArrayList();
+        
+        for (Reserva reserva : reservas) {
+   
+            if ("1".equals(reserva.getEstado())) {
+                reservasPorUsuario.add(reserva); 
+            }
+        }
+        return reservasPorUsuario;
+    }
     public ArrayList<Reserva> getReservas() {
         return reservas;
+    }
+    
+    public void actualizarReserva(Reserva reserva){ 
+        Reserva.actualizarReserva(reserva.getId());
     }
     
   

@@ -30,11 +30,12 @@ public class Reserva {
     private final Hotel hotel;
     private final Habitacion habitacion;
     private Usuario usuario;
+    private String estado ;
 
     static List<HashMap<String, Object>> listaReservas = null;
 
     public Reserva(String id, String fechaLLegada, String fechaSalida,String numeroHabitaciones,
-            Ciudad ciudad, Hotel hotel, Usuario usuario, Habitacion habitacion) {
+            Ciudad ciudad, Hotel hotel, Usuario usuario, Habitacion habitacion, String estado) {
         this.id = id;
         this.fechaLLegada = fechaLLegada;
         this.fechaSalida = fechaSalida;
@@ -43,8 +44,8 @@ public class Reserva {
         this.hotel = hotel;
         this.usuario = usuario;
         this.habitacion = habitacion;
+        this.estado = estado;
     }
-
     public String getId() {
         return id;
     }
@@ -92,9 +93,22 @@ public class Reserva {
             System.out.println(sql);
             pSql.update(sql);
     }
+    public static void actualizarReserva(String id) {
+        generateSql pSql = new generateSql();
+
+ 
+            String sql = "update `hoteles`.`reserva` set `estado`='1' where `id`='" + id + "' ";
+            System.out.println(sql);
+            pSql.update(sql);
+    }
     public Usuario getUsuario() {
         return usuario;
     }
+
+    public String getEstado() {
+        return estado;
+    }
+    
     @Override
     public String toString() {
         return fechaLLegada;
