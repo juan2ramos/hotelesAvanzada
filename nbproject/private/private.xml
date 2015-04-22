@@ -3,10 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/imac/NetBeansProjects/hoteles/src/Negocio/Hotel.java</file>
-            <file>file:/Users/imac/NetBeansProjects/hoteles/src/vista/Reservas.java</file>
-            <file>file:/Users/imac/NetBeansProjects/hoteles/src/Negocio/Facade.java</file>
-            <file>file:/Users/imac/NetBeansProjects/hoteles/src/Controlador/HotelMgr.java</file>
+            <file>file:/Users/juan2ramos/NetBeansProjects/hotelesAvanzada/src/Controlador/UsuarioMgr.java</file>
+            <file>file:/Users/juan2ramos/NetBeansProjects/hotelesAvanzada/src/Controlador/ReservaMgr.java</file>
+            <file>file:/Users/juan2ramos/NetBeansProjects/hotelesAvanzada/src/Negocio/Ciudad.java</file>
+            <file>file:/Users/juan2ramos/NetBeansProjects/hotelesAvanzada/src/Negocio/Habitacion.java</file>
+            <file>file:/Users/juan2ramos/NetBeansProjects/hotelesAvanzada/src/vista/Reservas.java</file>
+            <file>file:/Users/juan2ramos/NetBeansProjects/hotelesAvanzada/src/Negocio/Reserva.java</file>
+            <file>file:/Users/juan2ramos/NetBeansProjects/hotelesAvanzada/src/Controlador/Factoria.java</file>
+            <file>file:/Users/juan2ramos/NetBeansProjects/hotelesAvanzada/src/Negocio/Hotel.java</file>
+            <file>file:/Users/juan2ramos/NetBeansProjects/hotelesAvanzada/src/Controlador/Facade.java</file>
         </group>
     </open-files>
 </project-private>

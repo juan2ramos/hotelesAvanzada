@@ -43,6 +43,18 @@ public class Usuario {
         return nombre + " " + apellido; //To change body of generated methods, choose Tools | Templates.
     }
 
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+    
     public String getId() {
         return id;
     }

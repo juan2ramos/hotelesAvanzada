@@ -28,12 +28,13 @@ public class Reserva {
     private final String numeroHabitaciones;
     private final Ciudad ciudad;
     private final Hotel hotel;
+    private final Habitacion habitacion;
     private Usuario usuario;
 
     static List<HashMap<String, Object>> listaReservas = null;
 
     public Reserva(String id, String fechaLLegada, String fechaSalida,String numeroHabitaciones,
-            Ciudad ciudad, Hotel hotel, Usuario usuario) {
+            Ciudad ciudad, Hotel hotel, Usuario usuario, Habitacion habitacion) {
         this.id = id;
         this.fechaLLegada = fechaLLegada;
         this.fechaSalida = fechaSalida;
@@ -41,6 +42,7 @@ public class Reserva {
         this.ciudad = ciudad;
         this.hotel = hotel;
         this.usuario = usuario;
+        this.habitacion = habitacion;
     }
 
     public String getId() {
@@ -52,6 +54,21 @@ public class Reserva {
     public String getFechaSalida(){
         return fechaLLegada;
     }
+    public String getNumeroHabitaciones() {
+        return numeroHabitaciones;
+    }
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public Habitacion getHabitacion() {
+        return habitacion;
+    }
+    
+    
     public static List<HashMap<String, Object>> llenarReservas() {
         generateSql pSql = new generateSql();
         try {

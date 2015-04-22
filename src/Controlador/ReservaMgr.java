@@ -39,7 +39,7 @@ public class ReservaMgr {
             String fechaLlegada = (String) listaReserva.get(i).get("fecha_llegada").toString();
             String fechaSalida = (String) listaReserva.get(i).get("fecha_salida").toString();
             String numeroHabitaciones = (String) listaReserva.get(i).get("numero_habitaciones").toString();
-            
+            String idHabitacion = (String) listaReserva.get(i).get("id_habitacion").toString();
             String idHotel = (String) listaReserva.get(i).get("id_hotel").toString();
             String idUsuario = (String) listaReserva.get(i).get("id_usuario").toString();
             String idCiudad = (String) listaReserva.get(i).get("id_ciudad").toString();
@@ -47,8 +47,8 @@ public class ReservaMgr {
             Hotel hotel = HotelMgr.getInstance().getHotel(idHotel);
             Ciudad ciudad = CiudadMgr.getInstance().getCiudad(idCiudad);
             Usuario usuario = UsuarioMgr.getInstance().getUsuario(idUsuario);
-       
-            reservas.add(new Reserva(id,fechaLlegada,fechaSalida,numeroHabitaciones,ciudad,hotel,usuario));
+            Habitacion habitacion = HabitacionMgr.getInstance().getHabitacion(idHabitacion);
+            reservas.add(new Reserva(id,fechaLlegada,fechaSalida,numeroHabitaciones,ciudad,hotel,usuario,habitacion));
                 
         }
     }
@@ -58,16 +58,18 @@ public class ReservaMgr {
             Usuario usuario =  UsuarioMgr.getInstance().crearUsuario(nombres, apellidos, documento, telefono);
             Integer idReserva = Integer.parseInt(reservas.get(reservas.size() - 1).getId()) + 1;
             Reserva.insertarReservas(idReserva.toString(),llegada,salida,Nuhabitaciones,ciudad.getId(),hotel.getId(),usuario.getId());
-            reservas.add(new Reserva(idReserva.toString(),llegada,salida,Nuhabitaciones,ciudad,hotel,usuario));
+            reservas.add(new Reserva(idReserva.toString(),llegada,salida,Nuhabitaciones,ciudad,hotel,usuario,habitacion));
             
     }
     public ArrayList<Reserva> buscarReserva(String cedula){
         ArrayList<Reserva> reservasPorUsuario = new ArrayList();
         
         for (Reserva reserva : reservas) {
+          System.out.println();  
+        System.out.println(cedula + " " + reserva.getUsuario().getDocumento());
             if (reserva.getUsuario().getDocumento().equals(cedula)) {
                 reservasPorUsuario.add(reserva);
-                System.out.print("jsjsj");
+                
             }
         }
         return reservasPorUsuario;

@@ -7,6 +7,7 @@ package Controlador;
 
 import Negocio.Ciudad;
 import Negocio.Habitacion;
+import Negocio.Usuario;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -62,5 +63,13 @@ public class HabitacionMgr {
         }
         return habitacionesHotel;
     }
+    public Habitacion getHabitacion(String id) {
+        for (int i = 0; i < habitaciones.size(); i++) {
 
+            if (habitaciones.get(i).getId().equals(id)) {
+                return habitaciones.get(i);
+            }
+        }
+        return null;
+    }
 }
