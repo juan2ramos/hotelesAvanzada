@@ -111,9 +111,9 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Reportes reportes = new Reportes();
-        jDesktopPane1.add(reportes);
-        reportes.show();      // TODO add your handling code here:
+        Reporte reporte = new Reporte();
+        jDesktopPane1.add(reporte);
+        reporte.show();      // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
